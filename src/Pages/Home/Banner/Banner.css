@@ -1,0 +1,11 @@
+.banner{
+    height: 865px;
+    position: relative;
+}
+.banner_img{
+    height: 865px;
+}
+.BannerInfo{
+    position:absolute;
+    top: 450px;
+}
