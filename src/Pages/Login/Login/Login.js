@@ -9,7 +9,7 @@ import useAuth from '../../../Hooks/useAuth';
 import loginImg from '../../../Images/login.svg'
 const Login = () => {
 
-    const { signInWithGoogle, handleResetPassword, getNewUserEmail, getNewUserPassword, setUser, setError, signInWithEmail } = useAuth();
+    const { signInWithGoogle, handleResetPassword, getNewUserEmail, getNewUserPassword, setUser, setError, signInWithEmail, storeGoogleUserDb } = useAuth();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -21,10 +21,9 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user)
-
-                navigate(redirect);
                 //save user to database
-                // saveUser(user.displayName, user.email, 'PUT')
+                storeGoogleUserDb(user.email, user.displayName)
+                navigate(redirect);
             })
             .catch((error) => {
                 setError(error.message)

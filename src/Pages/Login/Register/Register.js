@@ -8,7 +8,7 @@ import useAuth from '../../../Hooks/useAuth';
 import loginImg from '../../../Images/login.svg'
 const Register = () => {
     // import functions from useFirebase hook
-    const { getNewUserEmail, getNewUserPassword, handleSubmitForm, name, email, getNewUserName, setUser, setError, emailVerification, setUserName } = useAuth();
+    const { getNewUserEmail, getNewUserPassword, handleSubmitForm, name, email, getNewUserName, setUser, setError, emailVerification, setUserName, storeUserDb } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const redirect = location?.state?.from || '/home';
@@ -26,20 +26,16 @@ const Register = () => {
 
                         handleSubmitForm()
                             .then((result) => {
-
                                 let user = result.user;
-
                                 user.email = email;
                                 user.displayName = name;
-
                                 setUser(user)
-
-                                emailVerification();
+                                //save user to database
+                                storeUserDb(user.email, user.displayName)
                                 setUserName();
+                                emailVerification();
                                 navigate(redirect);
 
-                                //save user to database
-                                // saveUser(user.displayName, user.email, 'POST');
                             })
                             .catch((error) => {
                                 setError(error.message)
