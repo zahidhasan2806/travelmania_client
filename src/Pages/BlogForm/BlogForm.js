@@ -21,7 +21,7 @@ const BlogForm = () => {
         }
         formData.append('image', image)
         formData.append('status', status)
-        fetch('http://localhost:5000/blogs', {
+        fetch('https://still-brushlands-68938.herokuapp.com/blogs', {
             method: "POST",
             body: formData
         })

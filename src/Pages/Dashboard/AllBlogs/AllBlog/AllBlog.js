@@ -8,7 +8,7 @@ const AllBlog = ({ blog }) => {
     const handleUpdateStatus = () => {
         const updatedStatus = { status: "Approved" };
 
-        const url = `http://localhost:5000/blogs/${_id}`;
+        const url = `https://still-brushlands-68938.herokuapp.com/blogs/${_id}`;
 
         fetch(url, {
             method: 'PUT',

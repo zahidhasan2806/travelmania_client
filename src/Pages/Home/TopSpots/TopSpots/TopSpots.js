@@ -9,7 +9,7 @@ const TopSpots = () => {
     // fetch top spots from api
 
     useEffect(() => {
-        fetch('http://localhost:5000/spots')
+        fetch('https://still-brushlands-68938.herokuapp.com/spots')
             .then(res => res.json())
             .then(data => setTopSpots(data))
     }, []);

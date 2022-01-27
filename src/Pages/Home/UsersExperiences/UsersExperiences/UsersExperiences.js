@@ -8,7 +8,7 @@ const UsersExperiences = () => {
     const [currentPage, setCurrentPage] = useState(0)
     const perPageBlog = 10;
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs?currentPage=${currentPage}&&perPageBlog=${perPageBlog}`)
+        fetch(`https://still-brushlands-68938.herokuapp.com/blogs?currentPage=${currentPage}&&perPageBlog=${perPageBlog}`)
             .then(res => res.json())
             .then(data => {
                 setBlogs(data.blog)
