@@ -1,0 +1,42 @@
+.all-spot-section{
+    position: relative;
+    }
+    
+    .all-spot-section img{
+        height: 300px;
+        width: 100%;
+        transition: .5s ease;
+    }
+    .card-div{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    text-align: center;
+    }
+    
+    .view-details-spots{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: none;
+        display: none;
+        border-radius: none;
+        background-color:  #060b26;
+        /* background-color:  #bd2600; */
+        color: white;
+        font-weight: 600;
+    }
+    
+    .overlay{
+        background-color: black;
+    }
+    
+    .all-spot-section:hover img{
+        opacity: 0.5;
+    }
+    
+    .all-spot-section:hover .view-details-spots{
+        display: block;
+        color: white;
+    }

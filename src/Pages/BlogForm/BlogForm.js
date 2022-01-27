@@ -28,7 +28,7 @@ const BlogForm = () => {
             .then((res) => res.json())
             .then((result) => {
                 if (result.insertedId) {
-
+                    alert("Thanks For sharing your experience with us")
                     reset()
                 }
             });
@@ -109,12 +109,17 @@ const BlogForm = () => {
                             <label className="main-font-color fw-bold fs-6" htmlFor="time">Departure Time*</label><br />
                             <input className="w-100 p-2 mb-2" type="time" {...register("time", { required: true })} /> <br />
 
-                            <label className="main-font-color fw-bold fs-6">Upload Image*</label>
-                            <input type="file" className="form-control p-2" name="image" accept='image/*' id="inputCity" ref={fileInput} required />
+                            <label className="main-font-color fw-bold fs-6">Upload Image</label>
+                            <input type="file" className="form-control p-2" name="image" accept='image/*' id="inputCity" ref={fileInput} />
+
                         </Col>
                     </Row>
 
-                    <textarea className="w-100 d-block m-auto py-2 mt-3" placeholder="Tell us about your journey!"{...register("descriptions", { required: true })} />
+
+                    <input className="w-100 p-2  mb-2" placeholder="Paste Your Image Link"{...register("pic")} /> <br />
+
+                    <textarea className="w-100 d-block m-auto py-2 mt-3" placeholder="Any other suggestions for us?"{...register("descriptions", { required: true })} />
+
 
 
                     {/* submit button */}

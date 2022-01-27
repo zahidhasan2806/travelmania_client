@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import AllBlog from '../AllBlog/AllBlog';
 
 const AllBlogs = () => {
@@ -11,10 +11,23 @@ const AllBlogs = () => {
 
     }, [])
     return (
-        <Container className="blogs-sec">
-            <h1 className="" style={{ backgroundColor: '#FCF6F6' }}>ALl Customer Review</h1>
-            <div className="container">
-                <div className="row review-sec">
+        <Container>
+            <div className="text-start mt-5">
+                <h2 className="fw-bold">Manages All Orders</h2>
+                <hr />
+            </div>
+            <Table striped borderless responsive hover size="sm">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>User Email</th>
+                        <th>Rating</th>
+                        <th>Status</th>
+                        <th>Status Confirmation</th>
+                        <th>Estimate Date</th>
+                    </tr>
+                </thead>
+                <tbody>
                     {
                         blogs?.map(blog => <AllBlog
 
@@ -24,9 +37,9 @@ const AllBlogs = () => {
 
                         </AllBlog>)
                     }
-                </div>
-            </div>
-        </Container>
+                </tbody>
+            </Table>
+        </Container >
     );
 };
 

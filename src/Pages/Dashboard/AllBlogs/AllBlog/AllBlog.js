@@ -1,7 +1,10 @@
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 const AllBlog = ({ blog }) => {
-    const { userName, userEmail, descriptions, rating, status, _id } = blog;
+    const { userName, userEmail, rating, status, _id } = blog;
     const handleUpdateStatus = () => {
         const updatedStatus = { status: "Approved" };
 
@@ -15,22 +18,28 @@ const AllBlog = ({ blog }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    console.log(data);
                     alert('Approved')
                     window.location.reload()
                 }
             })
     }
     return (
-        <div className="prodcuts-details-manage col-md-3">
-            <div className="my-order-title">
-                <p>Name: {userName}</p>
-                <p>Email: {userEmail}</p>
-                <p>Rating: {rating}</p>
-                <p>Description: {descriptions}</p>
-                <button className="blog-btn" onClick={handleUpdateStatus}>Pending</button>
-            </div>
-        </div>
+        <tr>
+            <td>{userName}</td>
+            <td>{userEmail}</td>
+            <td>{rating}</td>
+            <td>
+                {status === "Approved" && <FontAwesomeIcon
+                    className="text-success" icon={faCheck} />}
+                {status}
+            </td>
+            <td>
+                <Button onClick={handleUpdateStatus} variant="secondary" className="btn btn-success w-100">
+                    Confirm
+                </Button>
+
+            </td>
+        </tr >
     );
 };
 

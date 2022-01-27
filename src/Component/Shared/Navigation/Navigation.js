@@ -6,7 +6,7 @@ import useAuth from '../../../Hooks/useAuth';
 const Navigation = () => {
     const { user, logOut } = useAuth()
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className='navItem '>
+        <Navbar collapseOnSelect expand="lg" style={{ background: "#060b26" }} variant="dark" className='navItem '>
             <Container className='py-2'>
                 <Navbar.Brand href="#home" className=' text-white fs-4 f fw-bold fst-italic'>TravelMania</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
