@@ -29,7 +29,7 @@ const BlogForm = () => {
             .then((result) => {
                 if (result.insertedId) {
                     alert("Thanks For sharing your experience with us")
-                    reset()
+                    // reset()
                 }
             });
     }

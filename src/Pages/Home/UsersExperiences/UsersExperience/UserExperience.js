@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
 
 const UserExperience = ({ blog }) => {
-    const { userName, placeName, descriptions, expenses, date, rating, image } = blog;
+    const { userName, placeName, descriptions, date, rating, image, _id } = blog;
 
     return (
         <Col md={3} lg={4} className='py-3'>
@@ -17,7 +18,7 @@ const UserExperience = ({ blog }) => {
                         <h3>{placeName}</h3>
                         <h5>{date}</h5>
                     </div>
-                    <Button variant="none" className='view-details-spots'>
+                    <Button variant="none" className='view-details-spots' as={Link} to={`/blogDetails/${_id}`}>
                         View Details
                     </Button>
 
@@ -34,7 +35,7 @@ const UserExperience = ({ blog }) => {
                     />
                 </div>
                 <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {userName}</p>
-                <p>{descriptions.slice(0, 150)} <span><a href="">See More</a></span></p>
+                <p>{descriptions.slice(0, 150)} <span><Link to={`/blogDetails/${_id}`}>See More</Link></span></p>
 
             </div>
         </Col>

@@ -9,6 +9,8 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import BlogForm from './Pages/BlogForm/BlogForm';
 import AllBlogs from './Pages/Dashboard/AllBlogs/AllBlogs/AllBlogs';
+import BlogDetails from './Pages/Home/UsersExperiences/BlogDetails/BlogDetails';
+import WriteBlog from './Pages/Dashboard/WriteBlog/WriteBlog';
 
 function App() {
   return (
@@ -19,11 +21,13 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/home" element={<Home />}></Route>
             <Route path="/blogform" element={<ProtectedRoute><BlogForm /></ProtectedRoute>}></Route>
+            <Route path="/blogDetails/:id" element={<ProtectedRoute><BlogDetails /></ProtectedRoute>}></Route>
 
             <Route path="/dashboard" element={<Dashboard />}>
 
               <Route path="/dashboard/makeAdmin" element={<MakeAdmin />}></Route>
               <Route path="/dashboard/Allblogs" element={<AllBlogs />}></Route>
+              <Route path="/dashboard/addnewBlog" element={<WriteBlog />}></Route>
 
             </Route>
 

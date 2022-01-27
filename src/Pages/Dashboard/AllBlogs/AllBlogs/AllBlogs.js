@@ -7,7 +7,7 @@ const AllBlogs = () => {
     useEffect(() => {
         fetch('http://localhost:5000/blogs')
             .then(res => res.json())
-            .then(data => setBlogs(data))
+            .then(data => setBlogs(data.blog))
 
     }, [])
     return (
