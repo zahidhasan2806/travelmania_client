@@ -7,7 +7,7 @@ import useAuth from '../../Hooks/useAuth';
 import './BlogForm.css'
 const fileInput = React.createRef();
 
-const BlogFrom = () => {
+const BlogForm = () => {
     const { user } = useAuth()
     const { register, handleSubmit, reset, setValue, formState: { errors } } = useForm();
 
@@ -129,4 +129,4 @@ const BlogFrom = () => {
     );
 };
 
-export default BlogFrom;
+export default BlogForm;

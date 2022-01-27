@@ -1,0 +1,15 @@
+.blogs-sec {
+    background-color: #eff0f4;
+    padding-bottom: 25%;
+  }
+  .blogs-sec h1 {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .blog-btn {
+    padding: 3px 20px;
+    border: 0;
+    background-color: red;
+    color: white;
+    border-radius: 15px;
+  }

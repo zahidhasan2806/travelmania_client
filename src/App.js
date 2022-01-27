@@ -4,8 +4,11 @@ import AuthProvider from './Component/Context/AuthProvider/AuthProvider';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
-import BlogFrom from './Pages/BlogForm/BlogFrom';
 import ProtectedRoute from './Component/ProtectedRoute/ProtectedRoute';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import BlogForm from './Pages/BlogForm/BlogForm';
+import AllBlogs from './Pages/Dashboard/AllBlogs/AllBlogs/AllBlogs';
 
 function App() {
   return (
@@ -15,7 +18,15 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/home" element={<Home />}></Route>
-            <Route path="/blogform" element={<ProtectedRoute><BlogFrom /></ProtectedRoute>}></Route>
+            <Route path="/blogform" element={<ProtectedRoute><BlogForm /></ProtectedRoute>}></Route>
+
+            <Route path="/dashboard" element={<Dashboard />}>
+
+              <Route path="/dashboard/makeAdmin" element={<MakeAdmin />}></Route>
+              <Route path="/dashboard/Allblogs" element={<AllBlogs />}></Route>
+
+            </Route>
+
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
           </Routes>
