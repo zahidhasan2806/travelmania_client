@@ -2,6 +2,7 @@ import { faFacebook, faInstagram, faSkype, faTwitter } from '@fortawesome/free-b
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Col, Container, NavLink, Row } from 'react-bootstrap';
+import './Footer.css'
 
 const Footer = () => {
     return (

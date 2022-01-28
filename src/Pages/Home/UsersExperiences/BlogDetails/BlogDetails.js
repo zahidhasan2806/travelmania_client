@@ -3,8 +3,10 @@ import { Breadcrumb, Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
 import Navigation from '../../../../Component/Shared/Navigation/Navigation';
+import useAuth from '../../../../Hooks/useAuth';
 import './BlogDetails.css'
 const BlogDetails = () => {
+    const { admin } = useAuth()
     const [blogs, setBlogs] = useState([]);
     const [isloading, setIsLoading] = useState(true);
 
@@ -48,7 +50,10 @@ const BlogDetails = () => {
                     <Row className='my-5'>
                         <Col md={6} className='mb-5'>
                             {/* <h2>{title}</h2> */}
-                            <p style={{ color: "gray", fontStyle: "italic" }}>{userName}</p>
+                            {
+                                admin ? <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: Admin</p> : <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {userName}</p>
+
+                            }
 
                             <h2>{placeName}</h2>
                             <p>{descriptions}</p>
