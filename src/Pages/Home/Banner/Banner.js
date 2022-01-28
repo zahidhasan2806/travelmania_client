@@ -15,8 +15,8 @@ const Banner = () => {
                         alt="First slide"
                     />
                     <Carousel.Caption className='BannerInfo'>
-                        <h1>First slide label</h1>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h1>Where the journey begins!</h1>
+                        <p> Add more excitement to your life.Make your life more extra ordinary</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -27,8 +27,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption className='BannerInfo'>
-                        <h1>Second slide label</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h1>We make dreams come true!</h1>
+                        <p> Grab more fun with travel.To the more beautiful trip.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -40,8 +40,8 @@ const Banner = () => {
                     />
 
                     <Carousel.Caption className='BannerInfo'>
-                        <h1>Third slide label</h1>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h1>Traveling is the spice of life.</h1>
+                        <p> Don’t just book it, enjoy it.Roma around world.Pay less, travel more</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

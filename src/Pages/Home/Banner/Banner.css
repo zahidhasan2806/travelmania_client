@@ -1,6 +1,7 @@
 .banner{
     height: 865px;
     position: relative;
+
 }
 .banner_img{
     height: 865px;
@@ -8,4 +9,12 @@
 .BannerInfo{
     position:absolute;
     top: 450px;
+}
+.BannerInfo h1 { 
+    color: #060b26;
+    font-size: 50px;
+}
+.BannerInfo p{
+    color: #060b26;
+    font-size: 25px;
 }

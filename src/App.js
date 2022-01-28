@@ -11,6 +11,8 @@ import BlogForm from './Pages/BlogForm/BlogForm';
 import AllBlogs from './Pages/Dashboard/AllBlogs/AllBlogs/AllBlogs';
 import BlogDetails from './Pages/Home/UsersExperiences/BlogDetails/BlogDetails';
 import WriteBlog from './Pages/Dashboard/WriteBlog/WriteBlog';
+import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
+import AdminRoute from './Component/ProtectedRoute/AdminRoute';
 
 function App() {
   return (
@@ -24,10 +26,11 @@ function App() {
             <Route path="/blogDetails/:id" element={<ProtectedRoute><BlogDetails /></ProtectedRoute>}></Route>
 
             <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="/dashboard" element={<AdminRoute><DashboardHome /></AdminRoute>}></Route>
+              <Route path="/dashboard/makeAdmin" element={<AdminRoute><MakeAdmin /></AdminRoute>}></Route>
 
-              <Route path="/dashboard/makeAdmin" element={<MakeAdmin />}></Route>
-              <Route path="/dashboard/Allblogs" element={<AllBlogs />}></Route>
-              <Route path="/dashboard/addnewBlog" element={<WriteBlog />}></Route>
+              <Route path="/dashboard/Allblogs" element={<AdminRoute><AllBlogs /></AdminRoute>}></Route>
+              <Route path="/dashboard/addnewBlog" element={<AdminRoute><WriteBlog /></AdminRoute>}></Route>
 
             </Route>
 

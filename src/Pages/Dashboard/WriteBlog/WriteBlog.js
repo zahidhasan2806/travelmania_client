@@ -98,7 +98,7 @@ const WriteBlog = () => {
                     <Row className='m-0 p-0'>
                         <Col>
                             <label className="main-font-color fw-bold fs-6" htmlFor="name">Your Name</label><br />
-                            <input className="w-100 p-2 mb-2" name="name" readOnly defaultValue={user.displayName} {...register("name")} />
+                            <input className="w-100 p-2 mb-2" name="name" readOnly defaultValue={user.displayName} {...register("userName")} />
                             <br />
 
                             <label className="main-font-color fw-bold fs-6" htmlFor="address">Your Address</label><br />
@@ -114,7 +114,7 @@ const WriteBlog = () => {
 
                         <Col>
                             <label className="main-font-color fw-bold fs-6" htmlFor="email">Your Email</label><br />
-                            <input className="w-100 p-2 mb-2" name="email" readOnly defaultValue={user.email} {...register("email")} /> <br />
+                            <input className="w-100 p-2 mb-2" name="email" readOnly defaultValue={user.email} {...register("userEmail")} /> <br />
 
                             {errors.email && <span className="text-danger">Please Enter Your Email</span>}
 

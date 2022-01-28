@@ -1,0 +1,56 @@
+.navbar1{
+    background-color: transparent;
+}
+  
+.navbar1.colorChange{
+    background-color: #000000;
+}
+
+.nav-logo{
+    font-size: 35px;
+    font-weight: 700;
+}
+.menu-items{
+color: white;
+font-weight: 600;
+}
+
+.menu-items:hover{
+color: red;
+}
+
+.user-btn{
+    border: 3px solid goldenrod;
+    height: 60px;
+    width: 60px;
+    transition: 0.5s;
+}
+
+.dropdown-toggle::after{
+display: none;
+}
+
+.nav-link{
+color: #060b26;
+font-weight: 800;
+font-size: 20px;
+}
+
+.user-btn:hover{
+background-color: white;
+}
+
+.user-btn:hover .nav-link{
+color: red;
+}
+
+.dropdown-menu-items{
+    border-bottom: 1px solid #060b26;
+    color: #060b26 !important;
+}
+.icon{
+    color: goldenrod;
+}
+.icon:hover{
+    color :red
+}

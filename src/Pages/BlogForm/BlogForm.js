@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import useStars from 'stars-rating-react-hooks';
+import Footer from '../../Component/Shared/Footer/Footer';
 import Navigation from '../../Component/Shared/Navigation/Navigation';
 import useAuth from '../../Hooks/useAuth';
 import './BlogForm.css'
@@ -29,7 +30,7 @@ const BlogForm = () => {
             .then((result) => {
                 if (result.insertedId) {
                     alert("Thanks For sharing your experience with us")
-                    // reset()
+                    reset()
                 }
             });
     }
@@ -129,7 +130,7 @@ const BlogForm = () => {
 
                 </Form>
             </Container >
-
+            <Footer />
         </div >
     );
 };

@@ -24,7 +24,7 @@ const AllBlogs = () => {
                         <th>Rating</th>
                         <th>Status</th>
                         <th>Status Confirmation</th>
-                        <th>Estimate Date</th>
+                        <th>Delete Blog</th>
                     </tr>
                 </thead>
                 <tbody>

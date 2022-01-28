@@ -1,33 +1,67 @@
-import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState } from 'react';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { FiLogOut } from "react-icons/fi";
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import './Navigation.css'
+
+
 
 const Navigation = () => {
-    const { user, logOut } = useAuth()
+    const { user, logOut, admin } = useAuth();
+
+    const [colorChange, setColorchange] = useState(false);
+    const changeNavbarColor = () => {
+        if (window.scrollY >= 80) {
+            setColorchange(true);
+        }
+        else {
+            setColorchange(false);
+        }
+    };
+    window.addEventListener('scroll', changeNavbarColor);
     return (
-        <Navbar collapseOnSelect expand="lg" style={{ background: "#060b26" }} variant="dark" className='navItem '>
-            <Container className='py-2'>
-                <Navbar.Brand href="#home" className=' text-white fs-4 f fw-bold fst-italic'>TravelMania</Navbar.Brand>
+        <Navbar collapseOnSelect expand="lg" fixed='top'
+            className={colorChange ? 'navbar1 colorChange' : 'navbar1'}
+        >
+            <Container>
+                <Navbar.Brand href="/home" className='nav-logo text-white'>Travel<span className='main-font-color'>Mania</span></Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="ms-auto">
-                        <Nav.Link as={NavLink} to="/home" className='text-white fw-bold fs-6 ' >Home</Nav.Link >
-                        <Nav.Link as={NavLink} to="/blogform" className='text-white fw-bold fs-6 ' >Feedback</Nav.Link >
+
+                    <Nav className="ms-auto" defaultActiveKey="/home">
+                        <NavLink to="/home" className="text-decoration-none mx-3 fs-5  menu-items">Home</NavLink>
+                        <NavLink to="/blogform" className="text-decoration-none mx-3 fs-5  menu-items">Travel Experience</NavLink>
                         {
-                            !user?.email ?
-                                <Nav.Link as={NavLink} to="/login" className='text-white fw-bold fs-6 '>Login</Nav.Link> :
-                                <>
-                                    <Nav.Link as={NavLink} to="/dashboard" className='text-white fw-bold fs-6 '>
-                                        Dashboard
-                                    </Nav.Link>
-                                    <Button as={NavLink} to="/home" onClick={logOut} variant="dark">Log-out</Button>
-                                    <Navbar.Text className="ms-2">
-                                        <a className="text-decoration-none text-white fw-bold fs-6" href="#login" >{user?.displayName}</a>
-                                    </Navbar.Text>
-                                </>
+                            admin &&
+
+                            <NavLink to="/dashboard" className="text-decoration-none mx-3 fs-5  menu-items">Dashboard</NavLink>
                         }
+
                     </Nav>
+
+
+                    <NavDropdown title={<FontAwesomeIcon className='icon' icon={faUserAlt}></FontAwesomeIcon>} className=' user-btn ms-auto rounded-circle ' variant="none " >
+                        {
+                            user?.email ?
+                                <NavDropdown.Item className="main-font-color dropdown-menu-items bg-none fw-bolder"><FontAwesomeIcon className='icon' icon={faUserAlt}></FontAwesomeIcon>{user.displayName}</NavDropdown.Item>
+
+                                :
+                                <NavDropdown.Item as={NavLink} to="/login" className="main-font-color chngbg dropdown-menu-items">Login</NavDropdown.Item>
+                        }
+
+                        {
+                            user?.email ?
+                                <NavDropdown.Item as={NavLink} to="/home" onClick={logOut} className="main-font-color chngbg dropdown-menu-items"><FiLogOut /> Logout</NavDropdown.Item>
+
+                                :
+                                <NavDropdown.Item as={NavLink} to="/register" className="main-font-color chngbg dropdown-menu-items">Register</NavDropdown.Item>
+                        }
+
+                    </NavDropdown>
+
                 </Navbar.Collapse>
             </Container>
         </Navbar >

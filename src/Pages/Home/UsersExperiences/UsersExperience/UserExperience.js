@@ -2,12 +2,14 @@ import React from 'react';
 import { Button, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import StarRatings from 'react-star-ratings';
+import useAuth from '../../../../Hooks/useAuth';
 
 const UserExperience = ({ blog }) => {
+    const { admin } = useAuth()
     const { userName, placeName, descriptions, date, rating, image, _id } = blog;
 
     return (
-        <Col md={3} lg={4} className='py-3'>
+        <Col md={6} lg={4} className='py-3'>
             <div className='overlay'>
                 <div className='all-spot-section'>
                     {
@@ -25,17 +27,19 @@ const UserExperience = ({ blog }) => {
                 </div>
             </div>
             <div>
-                <div className='ps-5'>
+                <div className='ps-5 text-center'>
                     <StarRatings
                         rating={parseFloat(rating)}
-                        starDimension="30px"
+                        starDimension="25px"
                         starSpacing="5px"
                         starRatedColor="gold"
                         starEmptyColor='gray'
                     />
                 </div>
-                <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {userName}</p>
-                <p>{descriptions.slice(0, 150)} <span><Link to={`/blogDetails/${_id}`}>See More</Link></span></p>
+                {
+                    admin ? <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: Admin</p> : <p className='my-3' style={{ color: "gray", fontStyle: "italic" }}>by: {userName}</p>
+                }
+                <p>{descriptions.slice(0, 150)} </p>
 
             </div>
         </Col>
